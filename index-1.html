@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghar Seva | Home Services</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f6f8fb;color:#172033}
+header{background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px #00000012}
+.nav{max-width:1100px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:24px;font-weight:800;color:#1769e0}.logo span{color:#ff7a00}
+nav a{margin:0 8px;text-decoration:none;color:#333;font-weight:600}
+.actions button,.hero button,.service button{border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}
+.login{background:#fff;border:1px solid #1769e0!important;color:#1769e0}.register{background:#1769e0;color:white}
+.hero{background:linear-gradient(135deg,#1769e0,#35a7ff);color:white;padding:65px 20px}
+.hero-inner{max-width:1100px;margin:auto;text-align:center}
+.hero h1{font-size:42px;margin-bottom:14px}.hero p{font-size:18px;opacity:.95;margin-bottom:25px}
+.search{background:white;max-width:700px;margin:auto;padding:8px;border-radius:14px;display:flex;gap:8px}
+.search input{flex:1;border:0;outline:0;padding:14px;font-size:16px}.search button{background:#ff7a00;color:white}
+section{max-width:1100px;margin:45px auto;padding:0 20px}
+.title{text-align:center;margin-bottom:25px}.title h2{font-size:30px}.title p{color:#657084;margin-top:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border-radius:16px;padding:22px;text-align:center;box-shadow:0 5px 20px #0000000d;border:1px solid #e8edf5}
+.icon{font-size:38px;margin-bottom:12px}.card h3{margin-bottom:7px}.card p{color:#667085;font-size:14px;line-height:1.5}
+.providers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.provider{background:#fff;border-radius:16px;padding:20px;border:1px solid #e8edf5}
+.provider b{font-size:18px}.stars{color:#f59e0b;margin:8px 0}.provider small{color:#667085}
+footer{background:#172033;color:#fff;margin-top:55px;padding:35px 20px;text-align:center}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:30;align-items:center;justify-content:center;padding:20px}
+.box{background:#fff;width:min(420px,100%);border-radius:18px;padding:25px}.box h2{margin-bottom:18px}
+.box input{width:100%;padding:13px;margin:7px 0;border:1px solid #d5dbe5;border-radius:9px}
+.box button{width:100%;padding:13px;margin-top:10px;border:0;border-radius:9px;background:#1769e0;color:white;font-weight:700}
+.close{float:right;cursor:pointer;font-size:24px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.providers{grid-template-columns:1fr}.hero h1{font-size:32px}nav{display:none}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.actions button{padding:8px 10px}.logo{font-size:20px}}
+</style>
+</head>
+<body>
+<header>
+<div class="nav">
+<div class="logo">Ghar<span>Seva</span></div>
+<nav><a href="#home">Home</a><a href="#services">Services</a><a href="#providers">Providers</a><a href="#about">About</a><a href="#contact">Customer Care</a></nav>
+<div class="actions"><button class="login" onclick="openModal('login')">Login</button> <button class="register" onclick="openModal('register')">Register</button></div>
+</div>
+</header>
+
+<main id="home">
+<div class="hero">
+<div class="hero-inner">
+<h1>घर की हर सेवा, एक जगह</h1>
+<p>अपने आसपास भरोसेमंद home service providers खोजें और आसानी से service request भेजें।</p>
+<div class="search"><input id="search" placeholder="जैसे Electrician, Plumber, Cleaning..."><button onclick="searchService()">Search</button></div>
+</div>
+</div>
+
+<section id="services">
+<div class="title"><h2>Our Services</h2><p>घर के लिए जरूरी सेवाएं</p></div>
+<div class="grid">
+<div class="card"><div class="icon">⚡</div><h3>Electrician</h3><p>Fan, light, wiring और electrical repair.</p><button onclick="requestService('Electrician')">Book Service</button></div>
+<div class="card"><div class="icon">🔧</div><h3>Plumber</h3><p>Tap, pipe, leakage और plumbing work.</p><button onclick="requestService('Plumber')">Book Service</button></div>
+<div class="card"><div class="icon">🧹</div><h3>Home Cleaning</h3><p>घर की सफाई के लिए service providers.</p><button onclick="requestService('Home Cleaning')">Book Service</button></div>
+<div class="card"><div class="icon">❄️</div><h3>AC Service</h3><p>AC cleaning, servicing और maintenance.</p><button onclick="requestService('AC Service')">Book Service</button></div>
+</div>
+</section>
+
+<section id="providers">
+<div class="title"><h2>Service Providers</h2><p>उपलब्ध providers के उदाहरण</p></div>
+<div class="providers">
+<div class="provider"><b>Raj Electric Services</b><div class="stars">★★★★★</div><small>Electrician • 4.8/5</small></div>
+<div class="provider"><b>Sharma Plumbing</b><div class="stars">★★★★☆</div><small>Plumber • 4.6/5</small></div>
+<div class="provider"><b>Clean Home Team</b><div class="stars">★★★★★</div><small>Cleaning • 4.9/5</small></div>
+</div>
+</section>
+
+<section id="about">
+<div class="title"><h2>About GharSeva</h2><p>GharSeva एक simple home-services webpage demo है। आप यहां services देख सकते हैं और login/register interface खोल सकते हैं।</p></div>
+</section>
+</main>
+
+<footer id="contact">
+<h3>GharSeva Customer Care</h3><p style="margin-top:8px">Service help के लिए यहां अपना support information जोड़ा जा सकता है।</p>
+</footer>
+
+<div class="modal" id="modal">
+<div class="box"><span class="close" onclick="closeModal()">×</span><h2 id="modalTitle">Login</h2>
+<input id="name" placeholder="Name" style="display:none"><input placeholder="Mobile / Email"><input type="password" placeholder="Password">
+<button onclick="submitForm()">Continue</button><p id="msg" style="text-align:center;margin-top:12px;color:#1769e0"></p></div>
+</div>
+
+<script>
+function openModal(type){document.getElementById('modal').style.display='flex';document.getElementById('modalTitle').textContent=type==='login'?'Login to GharSeva':'Create GharSeva Account';document.getElementById('name').style.display=type==='register'?'block':'none';document.getElementById('msg').textContent=''}
+function closeModal(){document.getElementById('modal').style.display='none'}
+function submitForm(){document.getElementById('msg').textContent='Demo page: form submitted successfully.'}
+function requestService(s){document.getElementById('search').value=s;openModal('login')}
+function searchService(){let s=document.getElementById('search').value.trim();if(s) alert('Searching for: '+s);else alert('Please enter a service name.')}
+</script>
+</body>
+</html>
